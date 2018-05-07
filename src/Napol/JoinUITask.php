@@ -28,14 +28,15 @@ class JoinUITask extends PluginTask{
         $content = $this->plugin->getConfig()->get("Content");
         $button = $this->plugin->getConfig()->get("Button");
         $form = $this->plugin->getServer()->getPluginManager()->getPlugin("FormAPI")->createSimpleForm(function (Player $player,$data){
-            if (isset($data[0])) {
-                switch ($data[0]) {
+        if(is_null ( $data )){
+        return true;
+        }    
+                switch ($data) {
                     case 0:
-                        $player->sendMessage("§f-> §aขอบคุณที่อ่านนะครับ §f:)");
+                        $player->sendMessage("§f-> §Thanks for reading it. §f:)");
+                        break;
                 }
-                return true;
-            }
-            return false;
+
         });
         $form->setTitle(TextFormat::RESET . TextFormat::GREEN . "§f-=:> §cMC§f-§6Car§erot§aCraft§f - §eSurvival§f <:=-");
         $form->setContent($content);
