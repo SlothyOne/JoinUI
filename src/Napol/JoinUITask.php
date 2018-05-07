@@ -27,7 +27,7 @@ class JoinUITask extends PluginTask{
     public function mainForm($player) : void{
         $content = $this->plugin->getConfig()->get("Content");
         $button = $this->plugin->getConfig()->get("Button");
-        $form = $this->plugin->getServer()->getPluginManager()->getPlugin("FormAPI")->createSimpleForm(function (Player $player, array $data){
+        $form = $this->plugin->getServer()->getPluginManager()->getPlugin("FormAPI")->createSimpleForm(function (Player $player,$data){
             if (isset($data[0])) {
                 switch ($data[0]) {
                     case 0:
